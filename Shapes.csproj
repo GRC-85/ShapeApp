@@ -1,60 +1,169 @@
-﻿<?xml version="1.0" encoding="utf-8"?>
-<Project ToolsVersion="14.0" DefaultTargets="Build" xmlns="http://schemas.microsoft.com/developer/msbuild/2003">
-  <Import Project="$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props" Condition="Exists('$(MSBuildExtensionsPath)\$(MSBuildToolsVersion)\Microsoft.Common.props')" />
-  <PropertyGroup>
-    <Configuration Condition=" '$(Configuration)' == '' ">Debug</Configuration>
-    <Platform Condition=" '$(Platform)' == '' ">AnyCPU</Platform>
-    <ProjectGuid>{CD7818E9-0DEF-4A5E-B4C8-7CEDF2D54DBB}</ProjectGuid>
-    <OutputType>Exe</OutputType>
-    <AppDesignerFolder>Properties</AppDesignerFolder>
-    <RootNamespace>Shapes</RootNamespace>
-    <AssemblyName>Shapes</AssemblyName>
-    <TargetFrameworkVersion>v4.5.2</TargetFrameworkVersion>
-    <FileAlignment>512</FileAlignment>
-    <AutoGenerateBindingRedirects>true</AutoGenerateBindingRedirects>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Debug|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugSymbols>true</DebugSymbols>
-    <DebugType>full</DebugType>
-    <Optimize>false</Optimize>
-    <OutputPath>bin\Debug\</OutputPath>
-    <DefineConstants>DEBUG;TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <PropertyGroup Condition=" '$(Configuration)|$(Platform)' == 'Release|AnyCPU' ">
-    <PlatformTarget>AnyCPU</PlatformTarget>
-    <DebugType>pdbonly</DebugType>
-    <Optimize>true</Optimize>
-    <OutputPath>bin\Release\</OutputPath>
-    <DefineConstants>TRACE</DefineConstants>
-    <ErrorReport>prompt</ErrorReport>
-    <WarningLevel>4</WarningLevel>
-  </PropertyGroup>
-  <ItemGroup>
-    <Reference Include="System" />
-    <Reference Include="System.Core" />
-    <Reference Include="System.Xml.Linq" />
-    <Reference Include="System.Data.DataSetExtensions" />
-    <Reference Include="Microsoft.CSharp" />
-    <Reference Include="System.Data" />
-    <Reference Include="System.Net.Http" />
-    <Reference Include="System.Xml" />
-  </ItemGroup>
-  <ItemGroup>
-    <Compile Include="Program.cs" />
-    <Compile Include="Properties\AssemblyInfo.cs" />
-  </ItemGroup>
-  <ItemGroup>
-    <None Include="App.config" />
-  </ItemGroup>
-  <Import Project="$(MSBuildToolsPath)\Microsoft.CSharp.targets" />
-  <!-- To modify your build process, add your task inside one of the targets below and uncomment it. 
-       Other similar extension points exist, see Microsoft.Common.targets.
-  <Target Name="BeforeBuild">
-  </Target>
-  <Target Name="AfterBuild">
-  </Target>
-  -->
-</Project>
+using System;
+using System.Collections.Generic;
+using System.Linq;
+using System.Text;
+using System.Threading.Tasks;
+using static System.Console;
+
+namespace ShapesApplication
+{
+    class Rectanlge
+    {
+        //member variables
+    private double length;
+       private double width;
+        
+
+        public void AcceptDetails()
+        {
+            length = 4.5;
+            width = 3.5;
+        }
+
+        public double GetArea()
+        {
+            return length * width;
+        }
+
+      
+
+        public void Display()
+        {
+            WriteLine("When a rectangle has a length of {0} and a width of {1}, the area equals: {2}. ", length, width, GetArea());
+            WriteLine("The squareroot of the rectangle's area is: {0}", Math.Sqrt(GetArea()));
+
+        }
+    }
+
+    class Square
+    {
+
+        double length;
+        double width;
+
+
+        public void AcceptDetails()
+        {
+
+            length = 5.0;
+            width = 5.0;
+        }
+
+
+
+
+
+        public double GetArea()
+        {
+            return length * width;
+        }
+
+       
+
+        public void Display()
+        {
+            WriteLine("When a square has a length of {0} and a width of {1}, the area is: {2}", length, width, GetArea());
+            WriteLine("The squareroot of the square's area is: {0}", Math.Sqrt(GetArea()));
+
+        }
+
+
+        class Triangle
+        {
+
+            double width;
+            double height;
+
+            public void AcceptDetails()
+            {
+
+                width = 5.5;
+                height = 7.1;
+            }
+
+
+            public double GetArea()
+            {
+                return (width * height) / 2
+                ;
+            }
+
+            public void Display()
+            {
+                WriteLine("When a triangle has a width of {0} and a height of {1}, the area is: {2}.", width, height, GetArea());
+                WriteLine("The squareroot of the triangle's area is: {0}", Math.Sqrt(GetArea()));
+            }
+
+            class Octagon
+            {
+
+                double area;
+                double lengthOfSide;
+                public void AcceptDetails()
+                {
+                    lengthOfSide = 6;
+
+                }
+
+                public double GetArea()
+                {
+                    return area = 2 * (1 + Math.Sqrt(2)) * (lengthOfSide * lengthOfSide);
+                }
+
+
+                public void Display()
+                {
+                    WriteLine("When an octagon has 8 side-lengths equal to {0}, the area is: {1}.", lengthOfSide, GetArea());
+                    WriteLine("The squareroot of the octagon's area is: {0}", Math.Sqrt(GetArea()));
+                      
+                }
+
+
+            }
+
+
+
+
+
+
+
+            class ExecuteShapes
+            {
+
+                static void Main(string[] args)
+                {
+                    Rectanlge r = new Rectanlge();
+                    Square s = new Square();
+                    Triangle t = new Triangle();
+                    Octagon o = new Octagon();
+                    WriteLine("This application finds the area of different shapes.");
+                    WriteLine();
+                    r.AcceptDetails();
+                    r.Display();
+                    WriteLine();
+
+                    s.AcceptDetails();
+                    s.Display();
+                    WriteLine();
+
+                    t.AcceptDetails();
+                    t.Display();
+                    WriteLine();
+
+                    o.AcceptDetails();
+                    o.Display();
+                    ReadLine();
+
+
+                }
+
+
+            }
+
+
+        }
+
+    }
+
+}
+
